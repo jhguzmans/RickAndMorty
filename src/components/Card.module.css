@@ -1,0 +1,36 @@
+.contenedor {
+  text-align: center;
+  align-items: center;
+  width: 150px;
+  height: 250px;
+  border: 0px solid white;
+  border-radius: 2rem;
+  background: rgba(0, 0, 0, 0.214);
+}
+.imagen {
+  width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 50%;
+}
+.text {
+  color: white;
+  font-size: small;
+}
+.button {
+  background-color: rgba(131, 130, 141, 0);
+  font-weight: bold;
+  color: whitesmoke;
+  border: 0;
+  border-radius: 2rem;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+.description {
+  text-align: center;
+  align-items: center;
+  height: auto;
+  border: 0px solid white;
+  border-radius: 2rem;
+  background-color: rgb(13, 255, 1);
+}
