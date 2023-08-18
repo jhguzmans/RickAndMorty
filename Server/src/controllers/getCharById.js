@@ -11,7 +11,7 @@ const getCharById = async (req, res) => {
       id: data.id,
       name: data.name,
       species: data.species,
-      origin: origin.name,
+      origin: data.origin,
       image: data.image,
       gender: data.gender,
       status: data.status,
@@ -22,7 +22,6 @@ const getCharById = async (req, res) => {
       ? res.status(404).send(error.message)
       : res.status(500).send(error.response.data.error);
   }
-  //res.status(404).send("Not found");
 };
 
 module.exports = {

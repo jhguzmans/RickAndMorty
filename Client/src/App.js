@@ -10,37 +10,27 @@ import Form from "./components/Form";
 import Favorites from "./components/Favorites";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-const URL = "http://localhost:3001/rickandmorty/login";
+const URL = "http://localhost:3001/rickandmorty/login/";
 
 function App() {
-  //let [chars_id, setchars_id] = useState([]);
   const [characters, setCharacters] = useState([]);
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
 
-  //   const login = async (userData) => {
-  //     try {
-  //       const { email, password } = userData;
-  //       const { data } = await axios(
-  //         URL + `?email=${email}&password=${password}`
-  //       );
-  //       const { access } = data;
-  //       setAccess(access);
-  //       access && navigate("/home");
-  //     } catch (error) {
-  //       console.log(`Hubo un error en el login ${error.message}`);
-  //     }
-  //   };
-  function login(userData) {
-    const email = "jhguzmans@gmail.com";
-    const password = "123asd";
-    if (userData.password === password && userData.email === email) {
-      setAccess(true);
-      navigate("/home");
-    } else {
-      alert("El usuario o la contraseña son incorrectos");
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    } catch (error) {
+      console.log(error.message);
     }
-  }
+  };
+
   const logout = () => {
     setAccess(false);
   };
@@ -51,7 +41,7 @@ function App() {
 
   const onSearch = async (id) => {
     try {
-      const data = await axios(
+      const { data } = await axios(
         `http://localhost:3001/rickandmorty/character/${id}`
       );
       if (data.name) {

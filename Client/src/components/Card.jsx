@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { addFav, removeFav } from "../redux/actions";
 import { connect } from "react-redux";
 import { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Card({
   name,
@@ -35,7 +35,7 @@ function Card({
         setIsFav(true);
       }
     });
-  }, [myFavorites]);
+  }, [myFavorites, id]);
 
   return (
     <div className={style.contenedor}>

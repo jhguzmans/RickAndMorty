@@ -20,7 +20,8 @@ const Form = ({ login }) => {
       validation(userData, setUserData, errors, setErrors, event)
     );
   };
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
     login(userData);
   };
   return (
